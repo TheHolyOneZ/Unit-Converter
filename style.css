@@ -1,0 +1,235 @@
+/* General Styles */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color, #f4f4f9);
+    color: var(--text-color, #333);
+    transition: background-color 0.3s, color 0.3s;
+    overflow: hidden;
+}
+
+.container {
+    background: var(--container-bg, #fff);
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+.converter, .customization {
+    margin-bottom: 1.5em;
+}
+
+.customization label, .converter label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.converter select, .converter input, .customization select, .customization input[type="checkbox"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 0.5em;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 0.5em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.history {
+    margin-top: 1.5em;
+}
+
+.history h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+#historyList {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 0;
+    margin-bottom: 0.5em;
+}
+
+#result {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 1em;
+}
+
+/* Theme Variables */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --container-bg: #fff;
+}
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #333;
+    --text-color: #f4f4f9;
+    --container-bg: #444;
+}
+
+/* Themed Styles */
+.forest-theme {
+    background: linear-gradient(120deg, #6ba367, #4d774e);
+    --container-bg: #e8f5e9;
+}
+.forest-theme::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #3e5d3f 20%, transparent 70%);
+    top: 20%;
+    left: 20%;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 1;
+}
+.forest-theme::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #3e5d3f 20%, transparent 70%);
+    top: 60%;
+    right: 20%;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.beach-theme {
+    background: linear-gradient(to top, #f8e9a1, #f76c6c);
+    --container-bg: #ffe4b5;
+}
+.beach-theme::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffd700 30%, transparent 70%);
+    bottom: 30%;
+    right: 20%;
+    border-radius: 50%;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.neon-theme {
+    background: linear-gradient(to right, #141e30, #243b55);
+    --container-bg: #000;
+}
+.neon-theme::before, .neon-theme::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(0,255,255,0.5) 20%, transparent 70%);
+    top: 10%;
+    left: 10%;
+    opacity: 0.6;
+    animation: pulse 1.5s infinite alternate;
+}
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.space-theme {
+    background: radial-gradient(circle at 20% 20%, #1b2735, #090a0f);
+    --container-bg: #2c3e50;
+}
+.space-theme::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    top: 20%;
+    left: 30%;
+    opacity: 0.8;
+    animation: twinkle 2s infinite alternate;
+}
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Additional themes with custom shapes and animations */
+.sunset-theme {
+    background: linear-gradient(to top, #ff7e5f, #feb47b);
+    --container-bg: #ffe6e6;
+}
+.sunset-theme::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #ff4500 40%, transparent 70%);
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.snowfall-theme {
+    background: linear-gradient(to bottom, #ffffff, #c0c0c0);
+    --container-bg: #f0f8ff;
+}
+.snowfall-theme::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: fall 2.5s linear infinite;
+}
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}

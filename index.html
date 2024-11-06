@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - TheZ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme forest-theme light-mode">
+    <div class="container">
+        <h1>Unit Converter - TheZ</h1>
+
+        <!-- Theme & Customization Controls -->
+        <div class="customization">
+            <label for="theme">Theme:</label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="forest">Forest</option>
+                <option value="beach">Beach</option>
+                <option value="neon">Neon</option>
+                <option value="space">Space</option>
+                <option value="ocean">Ocean</option>
+                <option value="sunset">Sunset</option>
+                <option value="snowfall">Snowfall</option>
+                <option value="desert">Desert</option>
+                <option value="citylights">City Lights</option>
+            </select>
+            
+            <label for="font">Font Style:</label>
+            <select id="font" onchange="changeFontStyle()">
+                <option value="default">Default</option>
+                <option value="serif">Serif</option>
+                <option value="sans-serif">Sans-serif</option>
+                <option value="monospace">Monospace</option>
+            </select>
+
+            <!-- Dark Mode Toggle -->
+            <label for="darkMode">Dark Mode:</label>
+            <input type="checkbox" id="darkMode" onclick="toggleDarkMode()">
+        </div>
+
+        <!-- Category & Conversion Inputs -->
+        <div class="converter">
+            <label for="category">Category:</label>
+            <select id="category" onchange="updateUnits()">
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="temperature">Temperature</option>
+                <option value="volume">Volume</option>
+                <option value="speed">Speed</option>
+                <option value="area">Area</option>
+                <option value="time">Time</option>
+            </select>
+            
+            <input type="number" id="inputValue" placeholder="Enter value" />
+            <select id="fromUnit"></select>
+            <span>to</span>
+            <select id="toUnit"></select>
+            <button onclick="convert()">Convert</button>
+            <p id="result">Result: --</p>
+        </div>
+
+        <!-- Conversion History -->
+        <div class="history">
+            <h2>Conversion History</h2>
+            <ul id="historyList"></ul>
+            <button onclick="clearHistory()">Clear History</button>
+            <button onclick="exportHistory()">Export History</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
